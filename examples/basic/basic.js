@@ -25,9 +25,12 @@ serialport.on("open", function() {
     if (err) throw(err);
     else     console.log("written bytes: "+util.inspect(res));
   });
+  
+  xbeeAPI.on("frame_object", function(frame) {
+    console.log("OBJ> "+util.inspect(frame));
+  });
+  
 });
 
 
-xbeeAPI.on("frame_object", function(frame) {
-  console.log("OBJ> "+util.inspect(frame));
-});
+
